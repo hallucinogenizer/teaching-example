@@ -33,7 +33,7 @@ app.get("/courses", async (req, res) => {
     res.json(data.rows);
 })
 
-app.get("/enrollments3", async (req, res) => {
+app.get("/enrollments", async (req, res) => {
     const client = new Client({
         host: "localhost",
         port: "5432",
@@ -46,8 +46,6 @@ app.get("/enrollments3", async (req, res) => {
     const data = await client.query("SELECT * FROM Enrollments;");
 
     res.json(data.rows);
-
-    console.log("Hi")
 })
 
 app.listen(PORT, () => {
