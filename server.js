@@ -16,6 +16,21 @@ app.get("/", async (req, res) => {
     const data = await client.query("SELECT * FROM Students;");
 
     res.json(data.rows);
+});
+
+app.get("/courses", async (req, res) => {
+    const client = new Client({
+        host: "localhost",
+        port: "5432",
+        user: "postgres",
+        password: "mysecretpassword",
+        database: "teaching2"
+    });
+    await client.connect();
+
+    const data = await client.query("SELECT * FROM Courses;");
+
+    res.json(data.rows);
 })
 
 app.listen(PORT, () => {
