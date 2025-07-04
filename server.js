@@ -18,6 +18,21 @@ app.get("/", async (req, res) => {
     res.json(data.rows);
 })
 
+app.get("/enrollments", async (req, res) => {
+    const client = new Client({
+        host: "localhost",
+        port: "5432",
+        user: "postgres",
+        password: "mysecretpassword",
+        database: "teaching2"
+    });
+    await client.connect();
+
+    const data = await client.query("SELECT * FROM Enrollments;");
+
+    res.json(data.rows);
+})
+
 app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`)
 })
