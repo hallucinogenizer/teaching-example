@@ -33,7 +33,7 @@ app.get("/courses", async (req, res) => {
     res.json(data.rows);
 })
 
-app.get("/enrollments2", async (req, res) => {
+app.get("/enrollments3", async (req, res) => {
     const client = new Client({
         host: "localhost",
         port: "5432",
