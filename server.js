@@ -46,8 +46,6 @@ app.get("/enrollments3", async (req, res) => {
     const data = await client.query("SELECT * FROM Enrollments;");
 
     res.json(data.rows);
-
-    console.log("Hi")
 })
 
 app.listen(PORT, () => {
